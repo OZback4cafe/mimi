@@ -1,0 +1,26 @@
+제일 첫페이지 입니다.
+
+---
+Cafe_Login/
+│
+├── basic_pos/
+│   └── app.py
+│
+├──login/
+│   ├── static/
+│   │   ├── css/
+│   │   │   └── login_styles.css
+│   │   └── js/
+│   │       └── login.js
+│   │
+│   ├── templates/
+│   │   └── login.html
+│   │
+│   └── app.py
+├── control.py
+└── run.py    
+------
+
+init_user() 함수가 처음 실행될 때 기본 사용자
+(admin/pw123)가 데이터베이스에 생성됩니다.
+이 사용자 정보로 로그인할 수 있습니다.

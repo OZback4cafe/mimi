@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Cafe_Pos</title>
+ 
+    <meta name='Title' content=''>
+    <meta name='Subject' content=''>
+    <meta name='Keywords' content=''>
+    <meta name='Author' content=''>
+    <meta name='Publisher' content=''>
+    <meta name='Description' content=''>
+    <meta name='Author-Date' content=''>
+    <meta name='Copyright' content=''>
+
+    <!-- 접근성 텍스트(skip) 숨김 -->
+    <style>#skip{overflow: hidden; position:absolute; width:0; height:0; line-height:0; text-indent:-9999px;}</style>
+
+    <!-- 폰트어썸 -->
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+
+    <!-- 구글폰트 아이콘 -->
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0' />
+
+    <!-- CSS 리셋 -->
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css'>
+
+    <!-- 제이쿼리 3.7 CDN -->
+    <script src='https://code.jquery.com/jquery-3.7.0.min.js' crossorigin='anonymous'></script>
+
+    <!-- 로컬 CSS -->
+    <link rel='stylesheet' href='../static/css/pos_style.css'/>
+
+    <!-- 로컬 js -->
+    <script src='../static/js/pos.js' defer></script>
+</head>
+<body>
+    <!-- 시각장애인 웹 접근성을 위한 skip _ 지우지않아도 됩니다. -->
+    <ul id='skip'>
+        <li><a href='#header'>헤더 바로가기</a></li>
+        <li><a href='#nav'>메뉴 바로가기</a></li>
+        <li><a href='#content'>내용 바로가기</a></li>
+        <li><a href='#footer'>하단 바로가기</a></li>
+    </ul>
+
+    <div id="wrap">
+        <!-- username 변수 출력 -->
+        <h1>Welcome, {{ username }}!</h1>
+        <header id="header">
+            <div id="nav" class="font_1">
+                YOUNG's <img src="{{ url_for('static', filename='img/coffee.png') }}" alt="coffee" width="100px" height="100px"> COFFEE
+            </div>
+        </header>
+        <main id="main">
+            <div class="container">
+                <div id="menu_wrap">
+                    <div class="menu_page top_pick on">
+                        <ul>
+                            <li class="menu_box hand_drip" data-price="7000">
+                                <p>핸드드립</p>
+                                <span class="menu_price">7000 원</span>
+                            </li>
+                            <li class="menu_box cold_br" data-price="5000">
+                                <p>콜드브루</p>
+                                <span class="menu_price">5000 원</span>
+                            </li>
+                            <li class="menu_box orange_be" data-price="6500">
+                                <p>오렌지비앙코</p>
+                                <span class="menu_price">6500 원</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="menu_page drink">
+                        <ul>
+                            <li class="menu_box ice_ame" data-price="3500">
+                                <p>아메리카노</p>
+                                <span class="menu_price">3500 원</span>
+                            </li>
+                            <li class="menu_box hot_latte" data-price="4000">
+                                <p>카페라떼</p>
+                                <span class="menu_price">4000 원</span>
+                            </li>
+                            <li class="menu_box peach_shot" data-price="4000">
+                                <p>아.샷.추</p>
+                                <span class="menu_price">4000 원</span>
+                            </li>
+                            <li class="menu_box apogato" data-price="5200">
+                                <p>아포가토</p>
+                                <span class="menu_price">5200 원</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="menu_page desert">
+                        <ul>
+                            <li class="menu_box pie_meat" data-price="5900">
+                                <p>소고기파이</p>
+                                <span class="menu_price">5900 원</span>
+                            </li>
+                            <li class="menu_box pie_mushroom" data-price="5900">
+                                <p>양송이치킨파이</p>
+                                <span class="menu_price">5900 원</span>
+                            </li>
+                            <li class="menu_box pie_spinach" data-price="5900">
+                                <p>시금치파이</p>
+                                <span class="menu_price">5900 원</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="menu_page tea">
+                        <ul>
+                            <li class="menu_box tea_sberry" data-price="5000">
+                                <p>딸기차</p>
+                                <span class="menu_price">5000 원</span>
+                            </li>
+                            <li class="menu_box tea_jube" data-price="5000">
+                                <p>대추차</p>
+                                <span class="menu_price">5000 원</span>
+                            </li>
+                            <li class="menu_box tea_ginger" data-price="5000">
+                                <p>생강차</p>
+                                <span class="menu_price">5000 원</span>
+                            </li>
+                            <li class="menu_box tea_rui" data-price="5000">
+                                <p>루이보스차</p>
+                                <span class="menu_price">5000 원</span>
+                            </li>
+                            <li class="menu_box tea_ug" data-price="5000">
+                                <p>얼그레이</p>
+                                <span class="menu_price">5000 원</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- 주문 박스 -->
+                <div id="order_box">
+                    <div class="order_wrap">
+                        <div class="order_list"></div>
+                        <div class="order_result">
+                            Total : <span class="order_count"></span> <br><span class="total"></span>
+                        </div>
+                    </div>
+                    <!-- 결제 버튼을 이 위치로 이동 -->
+                    <div class="pay_wrap">
+                        <button id="pay_button">결제하기</button>
+                    </div>
+                </div>
+
+            </div>  
+        </main>
+        <footer class="footer" id="footer">
+            <div class="admin_menu_wrap"></div>Í
+            </div>
+            <!-- 결제 팝업 -->
+            <div id="payment_popup" class="popup" style="display: none;">
+                <div class="popup_content">
+                    <span id="popup_close" class="popup_close" style="cursor: pointer;">&times;</span>
+                    <h2>결제 정보</h2>
+                    <p>Total Amount: <span id="popup_total_amount">0</span> 원</p>
+                    <form id="payment_form">
+                        <div class="form-group">
+                            <label for="cash">현금:</label>
+                            <input type="number" id="cash" name="cash" min="0" value="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="card">카드:</label>
+                            <input type="number" id="card" name="card" min="0" value="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="points">포인트:</label>
+                            <input type="number" id="points" name="points" min="0" value="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="coupons">쿠폰:</label>
+                            <input type="number" id="coupons" name="coupons" min="0" value="0">
+                        </div>
+                        <p>잔액: <span id="balance">0</span> 원</p>
+                        <button type="button" id="confirm_payment">결제</button>
+                    </form>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

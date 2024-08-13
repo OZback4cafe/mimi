@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Coupons</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h2>Coupons</h2>
+    <a href="{{ url_for('logout') }}">Logout</a>
+    <a href="{{ url_for('coupon_form') }}">Add Coupon</a>
+    <ul>
+        {% for coupon in coupons %}
+            <li>
+                <img src="{{ url_for('static', filename='images/' ~ coupon[6]) }}" alt="Coupon Image" width="100">
+                <p>{{ coupon[1] }}</p>
+                <p>{{ coupon[2] }}</p>
+                <p>{{ coupon[3] }}</p>
+                <p>{{ coupon[4] }}</p>
+                <p>{{ coupon[5] }}</p>
+                <a href="{{ url_for('coupon_form', id=coupon[0]) }}">Edit</a>
+                <a href="{{ url_for('delete_coupon', id=coupon[0]) }}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

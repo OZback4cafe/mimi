@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>포인트 적립</title>
+    <link rel="stylesheet" href="../static/css/point_system.css">
+    <script src="../static/js/point_system.js"defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>포인트 적립</h1>
+        <h2>적립 예정 : {{ totalAmount }}</h2>
+        <form id="point-form">
+            <label for="phone">전화번호:</label>
+            <input type="tel" id="phone" name="phone" required pattern="[0-9]{10,11}" placeholder="01012345678">
+            
+            <button type="submit">검색</button>
+        </form>
+
+        <div id="result" class="result"></div>
+
+        <div id="new-customer-options" class="new-customer-options" style="display:none;">
+            <p>입력하신 전화번호로 가입된 정보가 없습니다.</p>
+            <button id="new-customer-btn" class="button">신규 가입</button>
+            <button id="cancel-btn" class="button">취소</button>
+        </div>
+        <div id="actions" class="actions" style="display:none;">
+            <button id="add-points-btn" class="button">적립</button>
+            <button id="edit-customer-btn" class="button">수정</button>
+            <button id="edit-cancel-btn" class="button">취소</button>
+        </div>
+    </div>
+</body>
+</html>

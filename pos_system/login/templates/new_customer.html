@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>신규 고객 가입</title>
+    <link rel="stylesheet" href="../static/css/point_system.css">
+    <script src="../static/js/new_customer.js"defer></script>
+
+</head>
+<body>
+    <div class="container">
+        <h1>신규 고객 가입</h1>
+        <form id="new-customer-form">
+            <label for="name">이름:</label>
+            <input type="text" id="name" name="name" required placeholder="이름">
+
+            <label for="birthday">생일:</label>
+            <input type="date" id="birthday" name="birthday" required>
+
+            <label for="phone">전화번호:</label>
+            <input type="tel" id="phone" name="phone" required pattern="[0-9]{10,11}" placeholder="01012345678">
+
+            <button type="submit" id="create-btn">가입하기</button>
+            <button type="submit" id="cancel-btn">취소</button>
+
+        </form>
+
+        <div id="signup-result" class="result"></div>
+    </div>
+
+    <script>
+        // URL에서 쿼리 파라미터로 전달된 전화번호를 읽어와 자동 입력
+        document.addEventListener("DOMContentLoaded", function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const phone = urlParams.get('phone');
+
+            if (phone) {
+                document.getElementById("phone").value = phone;
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ coupon and 'Edit Coupon' or 'Add Coupon' }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h2>{{ coupon and 'Edit Coupon' or 'Add Coupon' }}</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% if coupon %}
+            <input type="hidden" name="coupon_id" value="{{ coupon[0] }}">
+        {% endif %}
+        
+        <label for="cafe_name">Cafe Name:</label>
+        <button type="button" onclick="setCafeName('young\'s cafe')">young's cafe</button>
+        <button type="button" onclick="setCafeName('직접 입력')">직접 입력</button>
+        <input type="text" id="cafe_name" name="cafe_name" value="{{ coupon and coupon[1] or '' }}" required><br>
+        
+        <label for="coupon_name">Coupon Name:</label>
+        <select id="coupon_name" name="coupon_name" required>
+            <option value="" disabled selected>Select a coupon name</option>
+            <option value="첫 회원가입 축하 10000원 쿠폰">첫 회원가입 축하 10000원 쿠폰</option>
+            <option value="아메리카노(tall)무료 쿠폰">아메리카노(tall)무료 쿠폰</option>
+            <option value="소고기세트(+아메리카노)쿠폰">소고기세트(+아메리카노)쿠폰</option>
+            <option value="직접 입력">직접 입력</option>
+        </select>
+        <input type="text" id="coupon_name_input" name="coupon_name_input" style="display:none;" placeholder="Enter custom coupon name"><br>
+        
+        <label for="exchange_place">Exchange Place:</label>
+        <input type="text" id="exchange_place" name="exchange_place" value="{{ coupon and coupon[4] or '' }}" required><br>
+        
+        <label for="expiry_date">Expiry Date:</label>
+        <input type="date" id="expiry_date" name="expiry_date" value="{{ coupon and coupon[5] or '' }}" required><br>
+        
+        <label for="image">Coupon Image:</label>
+        <input type="file" id="image" name="image" {% if not coupon %}required{% endif %}><br>
+        
+        <button type="submit">{{ coupon and 'Update' or 'Add' }}</button>
+    </form>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

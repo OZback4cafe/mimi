@@ -1,0 +1,146 @@
+*{margin: 0; padding: 0;}
+
+/*공통사항*/
+.font_1{font-size: 3em;}
+.container{width: 99%; height: auto;}
+
+.on{z-index: 999; background-color: #fff;}
+.menu_box{width: 150px; height: 150px; background-color:rgba(255, 255, 255, 30%); margin: 10px; padding: 5px; float: left; border-radius: 50%;}
+
+
+/*메뉴*/
+#wrap{width: 100%; margin: 0 auto;}
+header{width: 100%; height: 200px; border-bottom: 1px solid #ececec; box-sizing: border-box; text-align: center; line-height: 200px;}
+
+#main{width: 99%; height: 500px; position: relative;  margin: 0 auto; }
+.menu_page{box-sizing: border-box; border: 1px solid #ccc; width: 70%; height: 500px; position: absolute; text-align: center; }
+
+.menu_page ul li p{font-size: 1.3em;}
+#menu_wrap .menu_page.on{border: 2px solid rgb(179, 129, 129);}
+#menu_wrap .menu_page.top_pick::before{ content: "signiture"; position: absolute; top: -54px; left:-2px; border: 1px solid #ccc; border-bottom: none; font-size: 2em;  border-radius: 10px 50px 0 0; background-color: #fff; padding: 10px 25px;}
+#menu_wrap .menu_page.on.top_pick::before{border-color: rgb(179, 129, 129); border:2px solid rgb(179,129,129); border-bottom: 0;}
+#menu_wrap .menu_page.drink::before{ content: "coffee"; position: absolute; top: -54px; left:-2px; left: 193px; border: 1px solid #ccc; border-bottom: none; font-size: 2em;border-radius: 10px 50px 0 0; background-color: #fff; padding: 10px 25px;}
+#menu_wrap .menu_page.on.drink::before{border-color: rgb(179, 129, 129); border:2px solid rgb(179,129,129); border-bottom: 0;}
+#menu_wrap .menu_page.desert::before{content: "dessert"; position: absolute; top: -54px; left:-2px; left: 343px; border: 1px solid #ccc; border-bottom: none; font-size: 2em;border-radius: 10px 50px 0 0; background-color: #fff; padding: 10px 25px;}
+#menu_wrap .menu_page.on.desert::before{border-color: rgb(179, 129, 129); border:2px solid rgb(179,129,129); border-bottom: 0;}
+#menu_wrap .menu_page.tea::before{content: "non-coffee"; position: absolute; top: -54px; left:-2px; left: 510px; border: 1px solid #ccc; border-bottom: none; font-size: 2em;border-radius: 10px 50px 0 0; background-color: #fff; padding: 10px 25px;}
+#menu_wrap .menu_page.on.tea::before{border-color: rgb(179, 129, 129); border:2px solid rgb(179,129,129); border-bottom: 0;}
+
+
+
+/*선택메뉴 + 금액창*/
+#order_box{width: 30%; height: 500px; position: absolute; left:70%; margin-left: 20px;}
+#order_box>div>*{width: 90%;}
+#order_box .order_wrap{width: 100%; height: 490px; position: relative; top: 10px; box-sizing: border-box;}
+#order_box .order_list{width: 90%; height: 390px;}
+#order_box .order_result{width: 90%; height: 100px; background-color: antiquewhite; font-size: 1.5em; padding: 5px; box-sizing: border-box;}
+
+#order_box .order_result span.total{display: block;font-size: 2.5em; margin: 10px auto; text-align: center; color: #d54431;}
+
+#order_box .order_list p {display: block; ; padding: 5px; background-color: #f0f0f0; border-radius: 5px;}
+
+
+.order_list .order_item button{border: none; background-color: rgba(0, 0, 0, 0);}
+.ordder_item{width: 5px; }
+.remove_item{position: relative; width: 20px; height: 20px;}
+
+.remove_item::before,.remove_item::after{content:"";  position: absolute; top: -4px; left:50%; width: 3px; height: 100%; background-color: black; transform-origin: center; background-color: red;}
+.remove_item::before{transform: rotate(45deg);}
+.remove_item::after{transform: rotate(-45deg);}
+
+
+/*메뉴 이미지 배경*/
+.ice_ame{background: url(../img/ice_ame.png) center center no-repeat; background-size: contain;}
+.hot_latte{background: url(../img/hot_latte.png) center center no-repeat; background-size: contain;}
+.hand_drip{background: url(../img/hand_drip.png) center center no-repeat; background-size: contain;}
+.orange_be{background: url(../img/orange_be.png) center center no-repeat; background-size: contain;}
+.cold_br{background: url(../img/cold_br.png) center center no-repeat; background-size: contain;}
+.peach_shot{background: url(../img/peach_shot.png) center center no-repeat; background-size: contain;}
+.apogato{background: url(../img/apogato.png) center center no-repeat; background-size: contain;}
+.pie_spinach{background: url(../img/pie_spinach.png) center center no-repeat; background-size: contain;}
+.pie_meat{background: url(../img/pie_meat.png) center center no-repeat; background-size: contain;}
+.pie_mushroom{background: url(../img/pie_mushroom.png) center center no-repeat; background-size: contain;}
+.tea_ug{background: url(../img/tea_ug.png) center center no-repeat; background-size: contain;}
+.tea_ginger{background: url(../img/tea_ginger.png) center center no-repeat; background-size: contain;}
+.tea_jube{background: url(../img/tea_jube.png) center center no-repeat; background-size: contain;}
+.tea_rui{background: url(../img/tea_rui.png) center center no-repeat; background-size: contain;}
+.tea_sberry{background: url(../img/tea_sberry.png) center center no-repeat; background-size: contain;}
+
+.menu_box {
+    width: 150px;
+    height: 150px;
+    background-color: rgba(255, 255, 255, 0.3);
+    margin: 10px;
+    padding: 5px;
+    float: left;
+    border-radius: 50%;
+    position: relative; /* Added to position the price properly */
+    text-align: center; /* Center align text */
+}
+
+.menu_price {
+    display: block;
+    color: #333;
+    font-size: 14px;
+    margin-top: 140px;
+}
+
+/* 팝업 기본 스타일 */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.popup_content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    width: 300px;
+    text-align: center;
+    position: relative;
+}
+
+.popup_close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+}
+
+.form-group {
+    margin: 10px 0;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #9a4835;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px 0; /* 버튼 아래 여백 추가 */
+}
+
+button:hover {
+    background-color: #dd3464; /* 호버 시 색상 변경 */
+}
