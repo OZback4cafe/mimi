@@ -31,10 +31,3 @@ class Order(db.Model):
     nickname = db.Column(db.String(10), nullable=False)
     points =db.Column(db.Integer, nullable=False)
     menu_id = db.Column(db.Integer, db.ForeignKey('menus.id'), nullable=False)
-
-# class Payment(db.Model):
-#     __tablename__ = "payments"
-#     id = db.Column(db.Integer, primmary_key= True, autoincrement=True)
-#     order_id = db.Column(db.Integer, db.ForeignKey('order.id'), nullable=False)
-#     amount = db.Column(db.Integer, nullable=False)
-#     type = db.Column(db.String(10))
